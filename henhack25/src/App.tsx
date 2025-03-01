@@ -28,13 +28,6 @@ function App() {
   return (
     <div className="App" onLoad={checkKeyValidity}>
       <header className="App-header">
-        <div className='div1'>
-        <p className='text'>
-          Welcome to medieval Europe!
-        </p>
-          <button className='ButtonRecipes'>Click here for an AI-generated recipe from medieval Europe!</button>
-          <button className= 'ButtonMap'>Click here for a map of medieval Europe!</button>
-        </div>
         {currentPage === 'home' && (
           <div className='div1'>
             <p className='text'>Welcome to our homepage.</p>
