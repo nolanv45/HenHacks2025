@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #c2c8d3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +28,45 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text{
+  color: black;
+  margin-bottom: 550px;
+  font-size: 50px;
+}
+
+.div1 {
+  position: relative; /* This makes .buttonHome positioned relative to .div1 */
+  height: 100vh; /* Full page height to allow movement */
+}
+
+.ButtonHome {
+  position: absolute;
+  top: 20%; /* Moves the button higher */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 200px;
+  size: 400px;
+  padding: 24px 0px;
+  font-size: 30px;
+  border-radius: 50px;
+
+  display: flex;
+  justify-content: center; /* Centers text horizontally */
+  align-items: center; /* Centers text vertically */
+  text-align: center; /* Ensures proper text alignment */
+
+  width: 90%; /* Makes button as wide as its container */
+  
+}
+
+.ButtonHome:hover {
+  background-color: gray; /* Darker gradient */
+  color: white;
+  transform: translate(-50%, -3px); /* Slight lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.ButtonHome:active {
+  transform: translate(-50%, 1px); /* Press-down effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
