@@ -8,8 +8,6 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   const [ingredients, setIngredients] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [recipeGenerated, setRecipeGenerated] = useState<boolean>(false);
-  type page = 'home' | 'Ai Page' | 'Recipe Page';
-  const [currentPage, setCurrentPage] = useState<page>('Ai Page');
 
   function updateIngredients(event: React.ChangeEvent<HTMLInputElement>) {
     setIngredients(event.target.value);
@@ -25,7 +23,6 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
 
   function goBack() {
     setRecipeGenerated(false);
-    setCurrentPage('home');
   }
 
   return (
@@ -57,7 +54,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
       </div>
       <div >
         <h2 className="recipe">Click For Your Recipe</h2>
-        <Button onClick={goBack} className="submitAns">
+        <Button className="submitAns" href="home" >
           Go Back
         </Button>
     
