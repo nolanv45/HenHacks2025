@@ -1,21 +1,60 @@
-import React from 'react';
-//import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
 
 function App() {
+  type page = 'home' | 'Ai Page' | 'Recipe Page'; // Define the page types
+  const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
+
+  // Function to change the page to 'Ai Page'
+  function goToAiPage(): void {
+    setCurrentPage('Ai Page'); // Set the state to 'Ai Page'
+  }
+
+  // Function to change the page to 'Recipe Page'
+  function goToRecipePage(): void {
+    setCurrentPage('Recipe Page'); // Set the state to 'Recipe Page'
+  }
+
+  function checkKeyValidity(event: React.SyntheticEvent<HTMLDivElement, Event>): void {
+    const userKey = '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';
+    if (!userKey || userKey.length === 0) {
+      alert('Invalid API key');
+    } else {
+      console.log('API key is valid');
+    }
+  }
+
   return (
-    <div className="App">
+    <div className="App" onLoad={checkKeyValidity}>
       <header className="App-header">
-        
-    
-        <div className='div1'>
-        <p className='text'>
-          Welcome to our homepage.
-        </p>
-          <button className='ButtonRecipes'>Click here for a recipe from medieval England!</button>
-          <button className= 'ButtonMap'>Click here for a map of diseases in medieval England!</button>
-        </div>
-        
+        {currentPage === 'home' && (
+          <div className='div1'>
+            <p className='text'>Welcome to our homepage.</p>
+
+            {/* Button for the Recipe Page */}
+            <button className="ButtonRecipes" onClick={goToAiPage}>
+              Click here for a recipe from medieval England!
+            </button>
+
+            {/* Button for the Ai Page */}
+            <button className='ButtonMap' onClick={goToRecipePage}>
+              Click here for a map of diseases in medieval England!
+            </button>
+          </div>
+        )}
+
+        {currentPage === 'Ai Page' && (
+          <div>
+            <AIIntegrationPage userKey={'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'}></AIIntegrationPage> 
+          </div>
+        )}
+
+        {currentPage === "Recipe Page" && (
+          <div>
+            {/* Add your Recipe Page content here */}
+          </div>
+        )}
       </header>
     </div>
   );
