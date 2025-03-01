@@ -5,7 +5,7 @@ import MappingApp from './Map2';
 
 function App() {
    // Define the page types
-   type page = 'home' | 'Ai Page' | 'Recipe Page';
+   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
 
   // Function to change the page to 'Ai Page'
@@ -15,7 +15,7 @@ function App() {
 
   // Function to change the page to 'Recipe Page'
   function goToMapPage(): void {
-    setCurrentPage('Recipe Page'); // Set the state to 'Recipe Page'
+    setCurrentPage('Map Page'); // Set the state to 'Recipe Page'
     console.log("Navigating to Map Page");
   }
 
@@ -53,7 +53,7 @@ function App() {
           </div>
         )}
 
-        {currentPage === "Recipe Page" && (
+        {currentPage === 'Map Page' && (
           <div>
             <MappingApp />
           </div>
