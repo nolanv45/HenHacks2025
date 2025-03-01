@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import AiIntegration from './AiIntegration';  // Import your AiIntegration component
+import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
 
 function App() {
   type page = 'home' | 'Ai Page' | 'Recipe Page'; // Define the page types
@@ -16,35 +16,45 @@ function App() {
     setCurrentPage('Recipe Page'); // Set the state to 'Recipe Page'
   }
 
+  function checkKeyValidity(event: React.SyntheticEvent<HTMLDivElement, Event>): void {
+    const userKey = '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';
+    if (!userKey || userKey.length === 0) {
+      alert('Invalid API key');
+    } else {
+      console.log('API key is valid');
+    }
+  }
+
   return (
-    <div className="App" hidden={currentPage !== "home"}>
+    <div className="App" onLoad={checkKeyValidity}>
       <header className="App-header">
-        <div className='div1'>
-          <p className='text'>Welcome to our homepage.</p>
+        {currentPage === 'home' && (
+          <div className='div1'>
+            <p className='text'>Welcome to our homepage.</p>
 
-          {/* Button for the Recipe Page */}
-          <button className="ButtonRecipes" onClick={goToRecipePage}>
-            Click here for a recipe from medieval England!
-          </button>
+            {/* Button for the Recipe Page */}
+            <button className="ButtonRecipes" onClick={goToAiPage}>
+              Click here for a recipe from medieval England!
+            </button>
 
-          {/* Button for the Ai Page */}
-          <button className='ButtonMap' onClick={goToAiPage}>
-            Click here for a map of diseases in medieval England!
-          </button>
+            {/* Button for the Ai Page */}
+            <button className='ButtonMap' onClick={goToRecipePage}>
+              Click here for a map of diseases in medieval England!
+            </button>
+          </div>
+        )}
 
-          {currentPage === 'Ai Page' && (
-            <div>
-              <AiIntegration /> {/* Render AiIntegration component for the 'Ai Page' */}
-            </div>
-          )}
+        {currentPage === 'Ai Page' && (
+          <div>
+            <AIIntegrationPage userKey={'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'}></AIIntegrationPage> 
+          </div>
+        )}
 
-          {currentPage === 'Recipe Page' && (
-            <div>
-              <h2>Recipe Page</h2>
-              <p>This page will show a recipe from medieval England. You can add recipe content here.</p>
-            </div>
-          )}
-        </div>
+        {currentPage === "Recipe Page" && (
+          <div>
+            {/* Add your Recipe Page content here */}
+          </div>
+        )}
       </header>
     </div>
   );
