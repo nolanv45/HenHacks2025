@@ -42,10 +42,10 @@
 .ButtonRecipes {
   position: absolute;
   top: 20%; /* Moves the button higher */
-  left: 50%;
+  left: 10%;
   transform: translateX(-50%);
   margin-top: 200px;
-  size: 400px;
+  size: 200px;
   padding: 24px 0px;
   font-size: 30px;
   border-radius: 50px;
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: left; /* Centers text horizontally */
   align-items: left; /* Centers text vertically */
-  text-align: left; /* Ensures proper text alignment */
+  text-align: center; /* Ensures proper text alignment */
 
   width: 90%; /* Makes button as wide as its container */
   
@@ -75,10 +75,10 @@
 .ButtonMap {
   position: absolute;
   top: 20%; /* Moves the button higher */
-  left: 50%;
+  left: 80%;
   transform: translateX(-50%);
   margin-top: 200px;
-  size: 400px;
+  size: 200px;
   padding: 24px 0px;
   font-size: 30px;
   border-radius: 50px;
@@ -86,7 +86,7 @@
   display: flex;
   justify-content: right; /* Centers text horizontally */
   align-items: right; /* Centers text vertically */
-  text-align: right; /* Ensures proper text alignment */
+  text-align: center; /* Ensures proper text alignment */
 
   width: 90%; /* Makes button as wide as its container */
   
