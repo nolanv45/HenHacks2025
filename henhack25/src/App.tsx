@@ -3,7 +3,8 @@ import './App.css';
 import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
 
 function App() {
-  type page = 'home' | 'Ai Page' | 'Recipe Page'; // Define the page types
+   // Define the page types
+   type page = 'home' | 'Ai Page' | 'Recipe Page';
   const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
 
   // Function to change the page to 'Ai Page'
