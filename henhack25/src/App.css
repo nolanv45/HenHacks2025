@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+  background-image:"/Users/gracegulick/Cisc Stuff/HenHacks2025/henhack25/src/medieval-village-scene-with-castle-background_1639-28493.avif";
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #c2c8d3;
+  background-image:"/Users/gracegulick/Cisc Stuff/HenHacks2025/henhack25/src/medieval-village-scene-with-castle-background_1639-28493.avif";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,13 +27,15 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: red;
 }
 
 .text{
   color: black;
   margin-bottom: 550px;
   font-size: 50px;
+  font-family:Apple Chancery, cursive;
+  font-weight:bold;
 }
 
 .div1 {
@@ -41,26 +45,29 @@
 
 .ButtonRecipes {
   position: absolute;
-  top: 20%; /* Moves the button higher */
+  top: 10%; /* Moves the button higher */
   left: 10%;
   transform: translateX(-50%);
   margin-top: 200px;
-  size: 200px;
+  size: 80px;
   padding: 24px 0px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 50px;
+  font-family:Apple Chancery, cursive;
 
   display: flex;
   justify-content: left; /* Centers text horizontally */
   align-items: left; /* Centers text vertically */
   text-align: center; /* Ensures proper text alignment */
 
-  width: 90%; /* Makes button as wide as its container */
+  width: 60%; /* Makes button as wide as its container */
+  color:white;
+  background-color:darkolivegreen
   
 }
 
 .ButtonRecipes:hover {
-  background-color: gray; /* Darker gradient */
+  background-color: darkslategrey; /* Darker gradient */
   color: white;
   transform: translate(-50%, -3px); /* Slight lift effect */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
@@ -74,26 +81,29 @@
 
 .ButtonMap {
   position: absolute;
-  top: 20%; /* Moves the button higher */
+  top: 10%; /* Moves the button higher */
   left: 80%;
   transform: translateX(-50%);
   margin-top: 200px;
-  size: 200px;
+  size: 80px;
   padding: 24px 0px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 50px;
+  font-family:Apple Chancery, cursive;
 
   display: flex;
   justify-content: right; /* Centers text horizontally */
   align-items: right; /* Centers text vertically */
   text-align: center; /* Ensures proper text alignment */
 
-  width: 90%; /* Makes button as wide as its container */
+  width: 60%; /* Makes button as wide as its container */
+  color:white;
+  background-color:darkolivegreen
   
 }
 
 .ButtonMap:hover {
-  background-color: gray; /* Darker gradient */
+  background-color: darkslategrey; /* Darker gradient */
   color: white;
   transform: translate(-50%, -3px); /* Slight lift effect */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);

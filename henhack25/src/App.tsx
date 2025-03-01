@@ -6,16 +6,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
-    
         <div className='div1'>
         <p className='text'>
-          Welcome to our homepage.
+          Welcome to medieval Europe!
         </p>
-          <button className='ButtonRecipes'>Click here for a recipe from medieval England!</button>
-          <button className= 'ButtonMap'>Click here for a map of diseases in medieval England!</button>
+          <button className='ButtonRecipes'>Click here for an AI-generated recipe from medieval Europe!</button>
+          <button className= 'ButtonMap'>Click here for a map of medieval Europe!</button>
         </div>
-        
       </header>
     </div>
   );
