@@ -12,7 +12,8 @@ function App() {
         <p className='text'>
           Welcome to our homepage.
         </p>
-          <button className='ButtonHome'>Click here for a recipe from anciet Europe!</button>
+          <button className='ButtonRecipes'>Click here for a recipe from medieval England!</button>
+          <button className= 'ButtonMap'>Click here for a map of diseases in medieval England!</button>
         </div>
         
       </header>
@@ -21,6 +22,7 @@ function App() {
 }
 
 export default App;
+
 
 export class Recipe{
   title:string;
@@ -43,4 +45,4 @@ new Recipe("Cruste Rolle", ["flour", "egg", "salt", "saffron", "oil"], 20, "Take
 new Recipe("Flaune of Almayne", ["currnat", "apple", "cream", "egg", "sugar", "bread", "butter", "cinnamon", "ginger", "salt", "saffron"],60, "A flaune of Almayne. First take raysins of coraunce, or elles other fressh reysins, and gode ripe peres, or elles gode appuls, and pyke oute the cokes of hom, and pare hom, and grinde hom, and the reysins in a clene morter, and do then to hom a lytel swete creme of mylk, and streyne hom thurgh a clene streynour, and take x egges, or as many mo as wol suffice, and bete hom wel togedur, bothe the qwyte and the yolke, and draw hit thurgh a streynour, and grate faire qwyte bred, and do therto a gode quantitie, and more swete crem, and do therto, and do al this togedur; and take saffron, and pouder of ginger, and canel, and do therto, and a lytel salt, and a quantitie of faire swete buttur, and make a faire coffyn, or two, or as many as needes, and bake hom a lytel in an oven, and do this bature in hom, and let bake hom as thow woldes bake flaunes, or crustades, and when thay byn baken ynogh, strawe upon hom pouder of canel, and of qwyte sugur. And this is a gode maner of crustade.", "fruit"),
 new Recipe("Blancmanger", ["chicken", "rice", "water", "sugar", "salt", "ginger", "pepper", "almond milk"], 20, "Take faire Almondes, and blanche hem, And grynde hem with sugour water into faire mylke; and take ryse, and seth. Andwhan they beth wel y-sodde, take hem vppe, and caste hem to the almondes mylke, and lete hem boile togidre til thei be thikk; And thentake the brawne of a Capon, and tese hit small, And caste thereto; and then take Sugur and salt, and caste thereto, and serue hit forthin maner of mortrewes.", "poultry"),
 new Recipe("Gyngerbrede", ["honey", "cinnamon", "pepper", "saffron", "bread crumbs"], 15, "Take a quart of hony, & sethe it, & skeme it clene; take Safroun, pouder Pepir, & þrow þer-on; take gratyd Brede, & make it so chargeaunt þat it wol be y-lechyd; þen take pouder Canelle, & straw þer-on y-now; þen make yt square, lyke as þou wolt leche yt; take when þou lechyst hyt, an caste Box leves a-bouyn, y-stykyd þer-on, on clowys. And 3if þou wolt haue it Red, coloure it with Saunderys y-now.", "dessert"),
-]
+];

@@ -39,7 +39,7 @@
   height: 100vh; /* Full page height to allow movement */
 }
 
-.ButtonHome {
+.ButtonRecipes {
   position: absolute;
   top: 20%; /* Moves the button higher */
   left: 50%;
@@ -51,22 +51,55 @@
   border-radius: 50px;
 
   display: flex;
-  justify-content: center; /* Centers text horizontally */
-  align-items: center; /* Centers text vertically */
-  text-align: center; /* Ensures proper text alignment */
+  justify-content: left; /* Centers text horizontally */
+  align-items: left; /* Centers text vertically */
+  text-align: left; /* Ensures proper text alignment */
 
   width: 90%; /* Makes button as wide as its container */
   
 }
 
-.ButtonHome:hover {
+.ButtonRecipes:hover {
   background-color: gray; /* Darker gradient */
   color: white;
   transform: translate(-50%, -3px); /* Slight lift effect */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.ButtonHome:active {
+.ButtonRecipes:active {
+  transform: translate(-50%, 1px); /* Press-down effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.ButtonMap {
+  position: absolute;
+  top: 20%; /* Moves the button higher */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 200px;
+  size: 400px;
+  padding: 24px 0px;
+  font-size: 30px;
+  border-radius: 50px;
+
+  display: flex;
+  justify-content: right; /* Centers text horizontally */
+  align-items: right; /* Centers text vertically */
+  text-align: right; /* Ensures proper text alignment */
+
+  width: 90%; /* Makes button as wide as its container */
+  
+}
+
+.ButtonMap:hover {
+  background-color: gray; /* Darker gradient */
+  color: white;
+  transform: translate(-50%, -3px); /* Slight lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.ButtonMap:active {
   transform: translate(-50%, 1px); /* Press-down effect */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
