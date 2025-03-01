@@ -28,9 +28,9 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   return (
     <div className="ai-integration-page">
       <div >
-        <h2>Get a European Recipe!</h2>
+        <h2 className="header">Get a European Recipe!</h2>
         <FormGroup>
-          <FormLabel>Ingredients:</FormLabel>
+          <FormLabel className="text">Enter Your Ingredients:</FormLabel>
           <FormControl
             as="textarea"
             rows={3}
@@ -40,7 +40,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
           />
         </FormGroup>
         <FormGroup>
-          <FormLabel>European Country:</FormLabel>
+          <FormLabel className="text">Select European Country:</FormLabel>
           <FormControl
             type="text"
             value={country}
@@ -53,7 +53,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
         </Button>
       </div>
       <div >
-        <h2>Your Recipe</h2>
+        <h2 className="recipe">Click For Your Recipe</h2>
         <Button onClick={goBack} className="submitAns">
           Go Back
         </Button>

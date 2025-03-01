@@ -5,6 +5,7 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: azure;
   }
   
   .responsebox{
@@ -14,7 +15,7 @@
   
   .submitAns {
     background-color: #007bff;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -23,4 +24,25 @@
   
   .submitAns:hover {
     background-color: #0056b3;
+  }
+  .text{
+    color: black;
+    margin-bottom: 550px;
+    font-size: 50px;
+    font-family:Apple Chancery, cursive;
+    font-weight:bold;
+  }
+  .header{
+    color: black;
+    margin-bottom: 50px;
+    font-size: 75px;
+    font-family:Apple Chancery, cursive;
+    font-weight:bold;
+  }
+  .recipe{
+    color: black;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family:Apple Chancery, cursive;
+    font-weight:bold;
   }
