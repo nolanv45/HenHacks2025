@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-image:"/Users/gracegulick/Cisc Stuff/HenHacks2025/henhack25/src/medieval-village-scene-with-castle-background_1639-28493.avif";
+  background-image: url("/Users/gracegulick/Cisc Stuff/HenHacks2025/henhack25/src/medieval-village-scene-with-castle-background_1639-28493.avif");
+  background-size: cover;
 }
 
 
@@ -16,7 +17,6 @@
 }
 
 .App-header {
-  background-image:"/Users/gracegulick/Cisc Stuff/HenHacks2025/henhack25/src/medieval-village-scene-with-castle-background_1639-28493.avif";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
