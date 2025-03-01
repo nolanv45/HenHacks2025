@@ -18,7 +18,16 @@ export const MapComponent = () => {
         map: webmap,
         container: mapDiv.current
       });
+
+    view.when(() => {
+      console.log("Map and View are ready");
+    }, (error: any) => {
+      console.error("Error loading MapView: ", error);
+    });
     }
+
+
+    
 
     return () => {
         if (mapDiv.current) {
@@ -27,6 +36,7 @@ export const MapComponent = () => {
     };
   }, []);
 
-  return <div ref={mapDiv} style={{height: "100vh"}} />;
+  return <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />;
+
 }
 export default MapComponent;
