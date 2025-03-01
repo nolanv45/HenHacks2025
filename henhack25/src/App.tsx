@@ -12,7 +12,7 @@ function App() {
         <p className='text'>
           Welcome to our homepage.
         </p>
-          <button className='ButtonHome'>Click here for a recipe from anciet Europe!</button>
+          <button className='ButtonHome'>Click here for a recipe from ancient Europe!</button>
         </div>
         
       </header>
