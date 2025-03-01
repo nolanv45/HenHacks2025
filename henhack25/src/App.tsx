@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
 import {MapComponent} from './Map'; // Import your Map component
+import MappingApp from './Map2';
 
 function App() {
   type page = 'home' | 'Ai Page' | 'Map Page'; // Define the page types
@@ -13,8 +14,9 @@ function App() {
   }
 
   // Function to change the page to 'Recipe Page'
-  function goToRecipePage(): void {
+  function goToMapPage(): void {
     setCurrentPage('Map Page'); // Set the state to 'Recipe Page'
+    console.log("Navigating to Map Page");
   }
 
   function checkKeyValidity(): void {
@@ -49,7 +51,7 @@ function App() {
             </button>
 
             {/* Button for the Ai Page */}
-            <button className='ButtonMap' onClick={goToRecipePage}>
+            <button className='ButtonMap' onClick={goToMapPage}>
               Click here for a map of diseases in medieval England!
             </button>
           </div>
@@ -63,7 +65,7 @@ function App() {
 
         {currentPage === "Map Page" && (
           <div>
-            <MapComponent />
+            <MappingApp />
           </div>
         )}
       </header>
