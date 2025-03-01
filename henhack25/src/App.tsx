@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
-import {MapComponent} from './Map'; // Import your Map component
 import MappingApp from './Map2';
 
 function App() {
-  type page = 'home' | 'Ai Page' | 'Map Page'; // Define the page types
+  type page = 'home' | 'Ai Page' | 'Recipe Page'; // Define the page types
   const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
 
   // Function to change the page to 'Ai Page'
@@ -15,11 +14,11 @@ function App() {
 
   // Function to change the page to 'Recipe Page'
   function goToMapPage(): void {
-    setCurrentPage('Map Page'); // Set the state to 'Recipe Page'
+    setCurrentPage('Recipe Page'); // Set the state to 'Recipe Page'
     console.log("Navigating to Map Page");
   }
 
-  function checkKeyValidity(): void {
+  function checkKeyValidity(event: React.SyntheticEvent<HTMLDivElement, Event>): void {
     const userKey = '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';
     if (!userKey || userKey.length === 0) {
       alert('Invalid API key');
@@ -31,16 +30,6 @@ function App() {
   return (
     <div className="App" onLoad={checkKeyValidity}>
       <header className="App-header">
-
-
-        <div className='div1'>
-        <p className='text'>
-          Welcome to medieval Europe!
-        </p>
-          <button className='ButtonRecipes' onClick={goToAiPage}>Click here for an AI-generated recipe from medieval Europe!</button>
-          <button className='ButtonMap' onClick={goToRecipePage}>Click here for a map of medieval Europe!</button>
-        </div>
-
         {currentPage === 'home' && (
           <div className='div1'>
             <p className='text'>Welcome to our homepage.</p>
@@ -63,17 +52,19 @@ function App() {
           </div>
         )}
 
-        {currentPage === "Map Page" && (
+        {currentPage === "Recipe Page" && (
           <div>
             <MappingApp />
           </div>
         )}
+
       </header>
     </div>
   );
 }
 
 export default App;
+
 
 export class Recipe{
   title:string;
