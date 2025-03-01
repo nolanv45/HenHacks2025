@@ -1,21 +1,50 @@
-import React from 'react';
-//import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import AiIntegration from './AiIntegration';  // Import your AiIntegration component
 
 function App() {
+  type page = 'home' | 'Ai Page' | 'Recipe Page'; // Define the page types
+  const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
+
+  // Function to change the page to 'Ai Page'
+  function goToAiPage(): void {
+    setCurrentPage('Ai Page'); // Set the state to 'Ai Page'
+  }
+
+  // Function to change the page to 'Recipe Page'
+  function goToRecipePage(): void {
+    setCurrentPage('Recipe Page'); // Set the state to 'Recipe Page'
+  }
+
   return (
-    <div className="App">
+    <div className="App" hidden={currentPage !== "home"}>
       <header className="App-header">
-        
-    
         <div className='div1'>
-        <p className='text'>
-          Welcome to our homepage.
-        </p>
-          <button className='ButtonRecipes'>Click here for a recipe from medieval England!</button>
-          <button className= 'ButtonMap'>Click here for a map of diseases in medieval England!</button>
+          <p className='text'>Welcome to our homepage.</p>
+
+          {/* Button for the Recipe Page */}
+          <button className="ButtonRecipes" onClick={goToRecipePage}>
+            Click here for a recipe from medieval England!
+          </button>
+
+          {/* Button for the Ai Page */}
+          <button className='ButtonMap' onClick={goToAiPage}>
+            Click here for a map of diseases in medieval England!
+          </button>
+
+          {currentPage === 'Ai Page' && (
+            <div>
+              <AiIntegration /> {/* Render AiIntegration component for the 'Ai Page' */}
+            </div>
+          )}
+
+          {currentPage === 'Recipe Page' && (
+            <div>
+              <h2>Recipe Page</h2>
+              <p>This page will show a recipe from medieval England. You can add recipe content here.</p>
+            </div>
+          )}
         </div>
-        
       </header>
     </div>
   );
