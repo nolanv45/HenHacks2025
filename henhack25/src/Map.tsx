@@ -36,11 +36,13 @@ export const MapComponent = () => {
             const featureLayer = layer as FeatureLayer;
             
             
-
-
+            featureLayer.load().then(() => {
+                console.log("Fields in Boundaries Layer:", featureLayer.fields.map((f: any) => f.name));
+              });
+              
             // Define a PopupTemplate (if it's not already defined)
             featureLayer.popupTemplate = new PopupTemplate({
-              title: "{Name}", // Use the field of your feature layer
+              title: `{REGIONNAME}`, // Use the field of your feature layer
               content: "{Description}", // Content can be adjusted to show relevant fields
             });
 
