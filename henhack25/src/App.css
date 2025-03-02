@@ -34,7 +34,7 @@
   color: black;
   margin-bottom: 550px;
   font-size: 50px;
-  font-family:Apple Chancery, cursive;
+  font-family:Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
   font-weight:bold;
 }
 
@@ -53,7 +53,7 @@
   padding: 24px 0px;
   font-size: 20px;
   border-radius: 50px;
-  font-family:Apple Chancery, cursive;
+  font-family:Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
 
   display: flex;
   justify-content: left; /* Centers text horizontally */
@@ -89,7 +89,7 @@
   padding: 24px 0px;
   font-size: 20px;
   border-radius: 50px;
-  font-family:Apple Chancery, cursive;
+  font-family:Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
 
   display: flex;
   justify-content: right; 
