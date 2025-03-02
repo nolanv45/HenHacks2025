@@ -109,7 +109,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
       Return only the JSON objects without extra formatting.`;
 
       const prompt2 = `Generate a recipe from the medieval period of each region [${regionsGroup2.join(", ")}] using the following ingredients:.
-      Format the response as an individual valid JSON with the following keys:
+      Format the response as an individual valid JSON with the following keys be sure its medieval with medieval cooking methods:
       {
         "Region": "Region name",
         "recipename": "Name of the recipe",
@@ -159,7 +159,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
       // Combine the results from both API calls
       const combinedRecipesData = [...recipesData1, ...recipesData2];
 
-      // Assuming combinedRecipesData is an array of recipes
+      // combinedRecipesData is an array of recipes
       setRecipesArray(combinedRecipesData);
       localStorage.setItem("recipesArray", JSON.stringify(combinedRecipesData));
       console.log("Recipes generated:", combinedRecipesData);
@@ -195,7 +195,6 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
               const featureLayer = layer as FeatureLayer;
               console.log("FeatureLayer found: ", featureLayer);
 
-              // Query all features in the layer
               featureLayer.queryFeatures().then((results: any) => {
                 results.features.forEach((feature: any) => {
                   console.log("Feature attributes: ", feature.attributes);
@@ -204,7 +203,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
 
               // Define a PopupTemplate (if it's not already defined)
               featureLayer.popupTemplate = new PopupTemplate({
-                title: `{REGIONNAME}`, // Use the field of your feature layer
+                title: `{REGIONNAME}`, // 
                 content: (feature: any) => {
                   const attributes = feature.graphic.attributes;
                   console.log("Feature attributes:", attributes);
@@ -268,7 +267,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
                         view.popup.open({
                           title: regionName,
                           content: content,
-                          location: event.mapPoint, // Show popup at clicked point
+                          location: event.mapPoint, // show popup at clicked point
                         });
                       }
                     } else {

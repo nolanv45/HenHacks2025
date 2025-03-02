@@ -61,8 +61,8 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
 
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-      const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}.
-    Format the response as valid JSON with the following keys:
+      const prompt = `Generate a MEDIEVAL recipe from ${country} using the following ingredients: ${ingredients}.
+    Format the response as valid JSON with the following keys and make sure its medieval with medieval cooking methods:
     {
         "title": "Recipe title",
         "country": "Country of origin",
@@ -104,7 +104,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
         {loading && <Loader />}
     {!loading && !recipeGenerated ? (
       <div >
-        <h2 className="header">Get a European Recipe!</h2>
+        <h2 className="header">Get a Medieval European Recipe!</h2>
         <FormGroup>
           <FormLabel className="text">Enter Your Ingredients:</FormLabel>
           <FormControl
