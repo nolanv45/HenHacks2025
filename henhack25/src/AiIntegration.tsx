@@ -32,7 +32,10 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   function updateCountry(event: React.ChangeEvent<HTMLInputElement>) {
     setCountry(event.target.value);
   }
-
+  function goHome(){
+    setCurrentPage('home');
+    console.log("Navigating to Home Page");
+  }
 
   function goBack() {
     setRecipeGenerated(false);
@@ -140,6 +143,9 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   
         <Button onClick={goBack} className="submitAns">
           Go Back
+        </Button>
+        <Button onClick={goHome} className="submitAns">
+          Home
         </Button>
       </div>
     )}
