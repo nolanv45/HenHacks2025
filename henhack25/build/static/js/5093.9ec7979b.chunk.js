@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhenhack25=self.webpackChunkhenhack25||[]).push([[5093],{15093:(s,i,t)=>{t.d(i,{stopEditing:()=>a});var n=t(3825),e=t(50076),o=t(54994);async function a(s,i,t,a,c){if(!i)throw new e.A("stop-editing:missing-guid","guid for version is missing");const h=(0,o.Dl)(s),r=(0,o.jV)(h.query,{query:(0,o.lF)({sessionId:t,saveEdits:a,f:"json"}),...c,method:"post"});i.startsWith("{")&&(i=i.slice(1,-1));const u=`${h.path}/versions/${i}/stopEditing`,{data:d}=await(0,n.A)(u,r);return d||{success:!1}}}}]);
+//# sourceMappingURL=5093.9ec7979b.chunk.js.map
