@@ -21,6 +21,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
   // const [currentPage, setCurrentPage] = useState<page>('Ai Page');
   interface Recipe {
     title: string;
+    country: string
     time: string;
     ingredients: string[];
     instructions: string[];
@@ -29,6 +30,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
       protein: string;
       carbs: string;
       fat: string;
+      nutrition: string;
     };
   }
 
@@ -63,6 +65,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
     Format the response as valid JSON with the following keys:
     {
         "title": "Recipe title",
+        "country": "Country of origin",
       "time": "Estimated preparation and cooking time",
       "ingredients": ["List of ingredients with quantities"],
       "instructions": ["Step 1", "Step 2", "Step 3", ...],
@@ -71,8 +74,10 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
         "protein": "value",
         "carbs": "value",
         "fat": "value"
+        "nutrition": "Why protein, carbs, and fat are important to human diet and how this recipe provides them." 
       }
     }
+      
     Return only the JSON object without extra formatting.`;
 
       const result = await model.generateContent(prompt);
@@ -129,6 +134,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
     ) : (
       <div className="recipe-container">
         <h2 className="recipe-title"><strong>{recipe?.title}</strong></h2>
+        <p className="recipe-country"><strong>Country:</strong> {recipe?.country}</p>
         
         {recipe && <p className="recipe-time"><strong>Time:</strong> {recipe.time}</p>}
         
@@ -152,8 +158,9 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
           <li><strong>Protein:</strong> {recipe?.macronutrients.protein}</li>
           <li><strong>Carbs:</strong> {recipe?.macronutrients.carbs}</li>
           <li><strong>Fat:</strong> {recipe?.macronutrients.fat}</li>
+          <li><strong>Nutrition:</strong> {recipe?.macronutrients.nutrition}</li>
         </ul>
-  
+          
         <Button onClick={goToHomePage} className="submitAns">
           Go Home
         </Button>

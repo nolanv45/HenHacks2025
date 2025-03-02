@@ -37,10 +37,7 @@ function App() {
       <header className="App-header">
         {currentPage === 'home' && (
           <div className='div1'>
-            <audio controls>
-          <source src="/Folk Round.mp3" type="audio/mpeg"></source>
-          Your browser does not support the audio element.
-  </audio>
+            
             <p className='text'>Welcome to our homepage.</p>
             {/* Button for the Ai Page */}
             <button className="ButtonRecipes" onClick={goToAiPage}>
