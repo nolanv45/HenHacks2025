@@ -25,6 +25,19 @@
   .submitAns:hover {
     background-color: #0056b3;
   }
+
+  .submitAns:hover {
+    background-color: darkslategrey; /* Darker gradient */
+    color: black;
+    transform: translate(0%, -3px); /* Slight lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .submitAns:active {
+    transform: translate(0%, 1px); /* Press-down effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
   .text{
     color: black;
     margin-bottom: 550px;
