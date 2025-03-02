@@ -5,6 +5,8 @@ import WebMap from "@arcgis/core/WebMap";
 
 export const MapComponent = () => {
   const mapDiv = useRef<HTMLDivElement>(null);
+  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
+  const [currentPage, setCurrentPage] = useState<page>('home');
 
   useEffect(() => {
     if (mapDiv.current) {
@@ -33,16 +35,22 @@ export const MapComponent = () => {
     };
   }, []);
 
+  function goBack() {
+    setCurrentPage;
+  }
+ 
   return (
-    
       <div>
         <h2 className="header">Get a European Recipe!</h2>
-     
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          <a href='home'><button>Go Back</button></a>
+          <button onClick={goBack}>Go Back</button>
+         
       </div>
-    
   );
 };
 
 export default MapComponent;
+
+function setCurrentPage(arg0: string) {
+  throw new Error("Function not implemented.");
+}
