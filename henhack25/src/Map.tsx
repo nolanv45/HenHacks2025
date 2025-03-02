@@ -80,16 +80,15 @@ export const MapComponent = () => {
     }
   }, []);
 
-//   function goBack() {
-//     setCurrentPage;
-//   }
+function goBack() {
+    setCurrentPage('home');
+  }
  
   return (
       <div>
-        <h2 className="header">Get a European Recipe!</h2>
+        <h2 className="header">Explore the Recipes of Europe!</h2>
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          {/* <button onClick={goBack}>Go Back</button> */}
-         
+          <button onClick={goBack}>Go Back</button>
       </div>
   );
 };
