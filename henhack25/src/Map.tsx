@@ -10,8 +10,6 @@ import PopupTemplate from "@arcgis/core/PopupTemplate";
 
 export const MapComponent = () => {
   const mapDiv = useRef<HTMLDivElement>(null);
-  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
-  const [currentPage, setCurrentPage] = useState<page>('home');
 
   useEffect(() => {
     if (mapDiv.current) {
@@ -79,6 +77,8 @@ export const MapComponent = () => {
       };
     }
   }, []);
+  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
+  const [currentPage, setCurrentPage] = useState<page>('home');
 
 function goBack() {
     setCurrentPage('home');
@@ -88,7 +88,7 @@ function goBack() {
       <div>
         <h2 className="header">Explore the Recipes of Europe!</h2>
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          <button onClick={goBack}>Go Back</button>
+          <button onClick={goBack} className="mapButton">Go Back</button>
       </div>
   );
 };
