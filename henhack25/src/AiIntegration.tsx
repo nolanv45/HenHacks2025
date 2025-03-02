@@ -6,12 +6,17 @@ import App from "./App";
 //import { ChatGPT } from './AI'; // Assuming you have a ChatGPT component
  // Create this query function
 
-export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element {
+ interface AIIntegrationPageProps {
+  userKey: string;
+  goToHomePage: () => void;
+}
+
+export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPageProps): JSX.Element {
   const [ingredients, setIngredients] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [recipeGenerated, setRecipeGenerated] = useState<boolean>(false);
-  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
-  const [currentPage, setCurrentPage] = useState<page>('Ai Page');
+  // type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
+  // const [currentPage, setCurrentPage] = useState<page>('Ai Page');
   interface Recipe {
     time: string;
     ingredients: string[];
@@ -25,13 +30,20 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   }
 
 
-  function goToHomePage(): void {
-  <Map show={false} /> // Renders nothing (null)
-    setCurrentPage('home'); 
-    console.log("Navigating to home page");
-  }
-
   const [recipe, setRecipe] = useState<Recipe | null>(null);
+
+
+
+
+
+
+  // function goToHomePage(): void {
+  //   setCurrentPage('home'); 
+  //   setRecipeGenerated(false); 
+  //   setRecipe(null); 
+  //   console.log("Navigating to home page");
+  // }
+ 
 
   function updateIngredients(event: React.ChangeEvent<HTMLInputElement>) {
     setIngredients(event.target.value);
@@ -39,10 +51,6 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
 
   function updateCountry(event: React.ChangeEvent<HTMLInputElement>) {
     setCountry(event.target.value);
-  }
-  function goHome(){
-    setCurrentPage('home');
-    console.log("Navigating to Home Page");
   }
 
   async function handleSubmit() {
@@ -145,15 +153,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
         </ul>
   
         <Button onClick={goToHomePage} className="submitAns">
-          Go Back
-        </Button>
-        {currentPage === 'home' && (
-                  <div>
-                    <App />
-                  </div>
-                )}
-        <Button onClick={goHome} className="submitAns">
-          Home
+          Go Home
         </Button>
       </div>
     )}
