@@ -41,11 +41,15 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
         const response = await fetch("https://www.arcgis.com/sharing/rest/oauth2/token/", {
           method: "POST",
           body: new URLSearchParams({
-            client_id: process.env.REACT_APP_ARCGIS_CLIENT_ID!,
-            client_secret: process.env.REACT_APP_ARCGIS_CLIENT_SECRET!,
+            
+            client_id: "zlaV5Ed2PGwGWDkN",
+            client_secret: "5a3ea1f5846741a4b1be0086a302c664",
+      
             grant_type: "client_credentials"
           })
+          
         });
+        console.log("API key found.");
         const data = await response.json();
         setAccessToken(data.access_token);
       } catch (error) {
@@ -245,24 +249,17 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
                     if (recipe) {
                       console.log(`Recipe found for ${regionName}: ${recipe.Region}`);
                       const content = `
-                        <h3>${recipe.Region}</h3>
-                        <p><strong>Time:</strong> ${recipe.time}</p>
-                        <h4>Ingredients</h4>
-                        <ul>
-                          ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-                        </ul>
-                        <h4>Instructions</h4>
-                        <ol>
-                          ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
-                        </ol>
-                        <h4>Macronutrients</h4>
-                        <ul>
-                          <li><strong>Calories:</strong> ${recipe.macronutrients.calories}</li>
-                          <li><strong>Protein:</strong> ${recipe.macronutrients.protein}</li>
-                          <li><strong>Carbs:</strong> ${recipe.macronutrients.carbs}</li>
-                          <li><strong>Fat:</strong> ${recipe.macronutrients.fat}</li>
-                        </ul>
-                      `;
+  <h3 style="color: #b35c00;">${recipe.Region}</h3>
+  <p><strong>Recipe:</strong> ${recipe.recipename}</p>
+  <h4 style="color: #006400;">Ingredients</h4>
+  <ul style="list-style: none; padding-left: 0;">
+    ${recipe.ingredients.map(i => `<li>🍲 ${i}</li>`).join("")}
+  </ul>
+  <h4 style="color: #8b0000;">Instructions</h4>
+  <ol>
+    ${recipe.instructions.map(i => `<li>${i}</li>`).join("")}
+  </ol>
+`;
                       if (view.popup) {
                         view.popup.open({
                           title: regionName,
@@ -304,9 +301,11 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
       <Button onClick={handleSubmit} className="submitAns">
         Generate Recipes
       </Button>
+      
       <Button onClick={goToHomePage} className="submitAns">
         Go Home
       </Button>
+      
       <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
     </div>
   );
