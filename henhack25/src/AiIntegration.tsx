@@ -98,7 +98,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
     <div className="ai-integration-page">
         {loading && <Loader />}
     {!loading && !recipeGenerated ? (
-      <div>
+      <div >
         <h2 className="header">Get a European Recipe!</h2>
         <FormGroup>
           <FormLabel className="text">Enter Your Ingredients:</FormLabel>
