@@ -3,6 +3,7 @@ import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import "./AiIntegration.css"; // Create this CSS file
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import App from "./App";
+import { Loader } from './Loader';
 //import { ChatGPT } from './AI'; // Assuming you have a ChatGPT component
  // Create this query function
 
@@ -15,6 +16,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
   const [ingredients, setIngredients] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [recipeGenerated, setRecipeGenerated] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   // type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   // const [currentPage, setCurrentPage] = useState<page>('Ai Page');
   interface Recipe {
@@ -47,6 +49,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
   }
 
   async function handleSubmit() {
+    setLoading(true);
     try {
       const apiKey = "AIzaSyDR-VHD19VDVq_t8ORrz4SCctc5Z_Rc6uQ";
       if (!apiKey) {
@@ -86,12 +89,15 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
       setRecipe(recipeData); // Use the state setter
       setRecipeGenerated(true);
     } catch (error) {
-      console.error("Error generating recipe:", error);
-    }
+        console.error("Error generating recipe:", error);
+      } finally {
+        setLoading(false); // Stop loading
+      }
   }
   return (
     <div className="ai-integration-page">
-    {!recipeGenerated ? (
+        {loading && <Loader />}
+    {!loading && !recipeGenerated ? (
       <div>
         <h2 className="header">Get a European Recipe!</h2>
         <FormGroup>
