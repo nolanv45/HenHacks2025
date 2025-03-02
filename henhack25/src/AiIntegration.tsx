@@ -109,7 +109,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
     </div>
     <div hidden={!recipeGenerated}> {/* Add hidden attribute */}
       <h2 className="recipe">Your Recipe</h2>
-      <p>{recipe}</p> {/* Display the recipe */}
+      <p className="t">{recipe}</p> {/* Display the recipe */}
       <Button onClick={goBack} className="submitAns">
         Go Back
       </Button>
