@@ -1,6 +1,7 @@
 /* HTML: <div class="loader"></div> */
 .l {
-    margin-left: 40%;
+    margin-left: auto;
+    margin-right:auto;
     --w:10ch;
     font-weight: bold;
     font-family: monospace;

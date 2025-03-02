@@ -10,7 +10,17 @@
   
   .responsebox{
       width: 100%;
+      height:75px;
       margin-bottom: 10px;
+      border-radius: 15px;
+      border-color:black;
+  }
+  .countrybox{
+    width: 100%;
+      height:50px;
+      margin-bottom: 10px;
+      border-radius: 15px;
+      border-color:black;
   }
   
   .submitAns {
