@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
@@ -19,24 +19,29 @@ export const MapComponent = () => {
         container: mapDiv.current
       });
 
-    view.when(() => {
-      console.log("Map and View are ready");
-    }, (error: any) => {
-      console.error("Error loading MapView: ", error);
-    });
+      view.when(() => {
+        console.log("Map and View are ready");
+      }, (error :any) => {
+        console.error("Error loading MapView: ", error);
+      });
     }
 
-
-    
-
     return () => {
-        if (mapDiv.current) {
-            mapDiv.current.innerHTML = "";
-        }
+      if (mapDiv.current) {
+        mapDiv.current.innerHTML = "";
+      }
     };
   }, []);
 
-  return <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />;
+  return (
+    
+      <div>
+        <h2 className="header">Get a European Recipe!</h2>
+     
+          <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
+      </div>
+    
+  );
+};
 
-}
 export default MapComponent;
