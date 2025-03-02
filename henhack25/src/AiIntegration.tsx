@@ -18,6 +18,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
   // type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   // const [currentPage, setCurrentPage] = useState<page>('Ai Page');
   interface Recipe {
+    title: string;
     time: string;
     ingredients: string[];
     instructions: string[];
@@ -58,6 +59,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
       const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}.
     Format the response as valid JSON with the following keys:
     {
+        "title": "Recipe title",
       "time": "Estimated preparation and cooking time",
       "ingredients": ["List of ingredients with quantities"],
       "instructions": ["Step 1", "Step 2", "Step 3", ...],
@@ -118,7 +120,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
       </div>
     ) : (
       <div className="recipe-container">
-        <h2 className="recipe-title">Your Recipe</h2>
+        <h2 className="recipe-title"><strong>{recipe?.title}</strong></h2>
         
         {recipe && <p className="recipe-time"><strong>Time:</strong> {recipe.time}</p>}
         
