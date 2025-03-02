@@ -116,7 +116,7 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
           type="text"
           value={country}
           onChange={updateCountry}
-          className="responsebox"
+          className="countrybox"
         />
         <p className="recipe-time"><strong>Time:</strong> {recipe?.time}</p>
         </FormGroup>
