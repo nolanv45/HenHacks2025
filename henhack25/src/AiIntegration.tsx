@@ -11,7 +11,19 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   const [recipeGenerated, setRecipeGenerated] = useState<boolean>(false);
   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   const [currentPage, setCurrentPage] = useState<page>('home');
-  const [recipe, setRecipe] = useState<string>("");
+  interface Recipe {
+    time: string;
+    ingredients: string[];
+    instructions: string[];
+    macronutrients: {
+      calories: string;
+      protein: string;
+      carbs: string;
+      fat: string;
+    };
+  }
+
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
 
   function updateIngredients(event: React.ChangeEvent<HTMLInputElement>) {
     setIngredients(event.target.value);
@@ -37,53 +49,100 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
 
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-      const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}. Keep it concise and make use of lists to keep track of ingredients. Don't use asterisks. Also, give the quantity of ingredients before explaining the recipe.`;
-  
+      const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}.
+    Format the response as valid JSON with the following keys:
+    {
+      "time": "Estimated preparation and cooking time",
+      "ingredients": ["List of ingredients with quantities"],
+      "instructions": ["Step 1", "Step 2", "Step 3", ...],
+      "macronutrients": {
+        "calories": "value",
+        "protein": "value",
+        "carbs": "value",
+        "fat": "value"
+      }
+    }
+    Return only the JSON object without extra formatting.`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
-      const text = response.text();
+      const text = await response.text(); // Await the text response
+
+      // Ensure the response text is valid JSON
+      const jsonStartIndex = text.indexOf('{');
+      const jsonEndIndex = text.lastIndexOf('}') + 1;
+      const jsonString = text.substring(jsonStartIndex, jsonEndIndex);
+
+      const recipeData = JSON.parse(jsonString);
   
-      setRecipe(text); // Use the state setter
+      setRecipe(recipeData); // Use the state setter
       setRecipeGenerated(true);
     } catch (error) {
       console.error("Error generating recipe:", error);
     }
   }
   return (
-  <div className="ai-integration-page">
-    <div hidden={recipeGenerated}> {/* Add hidden attribute */}
-      <h2 className="header">Get a European Recipe!</h2>
-      <FormGroup>
-        <FormLabel className="text">Enter Your Ingredients:</FormLabel>
-        <FormControl
-          as="textarea"
-          rows={3}
-          value={ingredients}
-          onChange={updateIngredients}
-          className="responsebox"
-        />
-      </FormGroup>
-      <FormGroup>
-        <FormLabel className="text">Select European Country:</FormLabel>
+    <div className="ai-integration-page">
+    {!recipeGenerated ? (
+      <div>
+        <h2 className="header">Get a European Recipe!</h2>
+        <FormGroup>
+          <FormLabel className="text">Enter Your Ingredients:</FormLabel>
+          <FormControl
+            as="textarea"
+            rows={3}
+            value={ingredients}
+            onChange={updateIngredients}
+            className="responsebox"
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormLabel className="text">Select European Country:</FormLabel>
         <FormControl
           type="text"
           value={country}
           onChange={updateCountry}
           className="responsebox"
         />
-      </FormGroup>
-      <Button onClick={handleSubmit} className="submitAns">
-        Get Recipe
-      </Button>
-    </div>
-    <div hidden={!recipeGenerated}> {/* Add hidden attribute */}
-      <h2 className="recipe">Your Recipe</h2>
-      <p className="t">{recipe}</p> {/* Display the recipe */}
-      <Button onClick={goBack} className="submitAns">
-        Go Back
-      </Button>
-    </div>
+        <p className="recipe-time"><strong>Time:</strong> {recipe?.time}</p>
+        </FormGroup>
+        <Button onClick={handleSubmit} className="submitAns">
+          Get Recipe
+        </Button>
+      </div>
+    ) : (
+      <div className="recipe-container">
+        <h2 className="recipe-title">Your Recipe</h2>
+        
+        {recipe && <p className="recipe-time"><strong>Time:</strong> {recipe.time}</p>}
+        
+        <h3>Ingredients</h3>
+        <ul className="recipe-ingredients">
+          {recipe?.ingredients.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+  
+        <h3>Instructions</h3>
+        <ol className="recipe-instructions">
+          {recipe?.instructions.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ol>
+  
+        <h3>Macronutrients</h3>
+        <ul className="recipe-macronutrients">
+          <li><strong>Calories:</strong> {recipe?.macronutrients.calories}</li>
+          <li><strong>Protein:</strong> {recipe?.macronutrients.protein}</li>
+          <li><strong>Carbs:</strong> {recipe?.macronutrients.carbs}</li>
+          <li><strong>Fat:</strong> {recipe?.macronutrients.fat}</li>
+        </ul>
+  
+        <Button onClick={goBack} className="submitAns">
+          Go Back
+        </Button>
+      </div>
+    )}
   </div>
   );
 }
