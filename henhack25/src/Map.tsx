@@ -1,15 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, JSX } from "react";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import Graphic from "@arcgis/core/Graphic";
 import PopupTemplate from "@arcgis/core/PopupTemplate";
-import { GoogleGenerativeAI } from "@google/generative-ai";; // Replace with the actual library name
+import { GoogleGenerativeAI } from "@google/generative-ai";import { Button } from "react-bootstrap";
+; // Replace with the actual library name
 
 
+interface MapPageProps {
+    goToHomePage: () => void;
+  }
 
-export const MapComponent = () => {
+export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
   const mapDiv = useRef<HTMLDivElement>(null);
   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
 
@@ -94,11 +98,7 @@ async function handleSubmit() {
         webmap.layers.forEach((layer: any) => {
           if (layer.type === "feature") {
             const featureLayer = layer as FeatureLayer;
-            
-            
-            featureLayer.load().then(() => {
-                console.log("Fields in Boundaries Layer:", featureLayer.fields.map((f: any) => f.name));
-              });
+        
               
             // Define a PopupTemplate (if it's not already defined)
             featureLayer.popupTemplate = new PopupTemplate({
@@ -141,29 +141,19 @@ async function handleSubmit() {
       };
     }
   }, []);
-  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
-  const [currentPage, setCurrentPage] = useState<page>('home');
 
 
-function setCurrentPage(arg0: string) {
-  throw new Error("Function not implemented.");
-}
 
-
-function setCurrentPage(arg0: string) {
-  throw new Error("Function not implemented.");
-}
-
-function goBack() {
-    setCurrentPage('home');
-  }
 
  
   return (
       <div>
         <h2 className="header">Explore the Recipes of Europe!</h2>
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          <button onClick={goBack} className="mapButton">Go Back</button>
+          
+          <Button onClick={goToHomePage} className="submitAns">
+          Go Home
+        </Button>
       </div>
   );
 };
