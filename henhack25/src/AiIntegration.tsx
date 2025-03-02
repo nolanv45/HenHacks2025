@@ -24,6 +24,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
 
   function goBack() {
     setRecipeGenerated(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     setCurrentPage;
   }
   async function handleSubmit() {
