@@ -2,6 +2,7 @@ import React, { JSX, useState } from "react";
 import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import "./AiIntegration.css"; // Create this CSS file
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import App from "./App";
 //import { ChatGPT } from './AI'; // Assuming you have a ChatGPT component
  // Create this query function
 
@@ -10,7 +11,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   const [country, setCountry] = useState<string>("");
   const [recipeGenerated, setRecipeGenerated] = useState<boolean>(false);
   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
-  const [currentPage, setCurrentPage] = useState<page>('home');
+  const [currentPage, setCurrentPage] = useState<page>('Ai Page');
   interface Recipe {
     time: string;
     ingredients: string[];
@@ -21,6 +22,13 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
       carbs: string;
       fat: string;
     };
+  }
+
+
+  function goToHomePage(): void {
+  <Map show={false} /> // Renders nothing (null)
+    setCurrentPage('home'); 
+    console.log("Navigating to home page");
   }
 
   const [recipe, setRecipe] = useState<Recipe | null>(null);
@@ -34,11 +42,6 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   }
 
 
-  function goBack() {
-    setRecipeGenerated(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    setCurrentPage;
-  }
   async function handleSubmit() {
     try {
       const apiKey = "AIzaSyDR-VHD19VDVq_t8ORrz4SCctc5Z_Rc6uQ";
@@ -138,9 +141,14 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
           <li><strong>Fat:</strong> {recipe?.macronutrients.fat}</li>
         </ul>
   
-        <Button onClick={goBack} className="submitAns">
+        <Button onClick={goToHomePage} className="submitAns">
           Go Back
         </Button>
+        {currentPage === 'home' && (
+                  <div>
+                    <App />
+                  </div>
+                )}
       </div>
     )}
   </div>
