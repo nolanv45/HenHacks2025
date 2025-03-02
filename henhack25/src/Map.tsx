@@ -24,7 +24,7 @@ export const MapComponent = () => {
         center: [10, 50], 
         zoom: 4, 
       });
-      
+
       view.when(() => {
         console.log("Map and View are ready");
 
@@ -32,13 +32,14 @@ export const MapComponent = () => {
         webmap.layers.forEach((layer: any) => {
           if (layer.type === "feature") {
             const featureLayer = layer as FeatureLayer;
-            // Add interaction to the feature layer
-            featureLayer.outFields = ["*"]; // Get all fields
+            
+            
+
 
             // Define a PopupTemplate (if it's not already defined)
             featureLayer.popupTemplate = new PopupTemplate({
-              title: "{Name}", // Use the field of your feature layer
-              content: "{Description}", // Content can be adjusted to show relevant fields
+              title: layer., // Use the field of your feature layer
+              content: layer.content, // Content can be adjusted to show relevant fields
             });
 
             // Add click event to the view for interaction
@@ -57,7 +58,10 @@ export const MapComponent = () => {
                 }
               });
             });
+            const fields = featureLayer.fields;
+            console.log("Layer Fields: ", fields)
           }
+          
         });
       }, (error: any) => {
         console.error("Error loading WebMap: ", error);
