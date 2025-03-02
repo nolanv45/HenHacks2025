@@ -40,8 +40,8 @@ export const MapComponent = () => {
 
             // Define a PopupTemplate (if it's not already defined)
             featureLayer.popupTemplate = new PopupTemplate({
-              title: layer.title, // Use the field of your feature layer
-              content: layer.content, // Content can be adjusted to show relevant fields
+              title: "{Name}", // Use the field of your feature layer
+              content: "{Description}", // Content can be adjusted to show relevant fields
             });
 
             // Add click event to the view for interaction
@@ -49,11 +49,14 @@ export const MapComponent = () => {
               view.hitTest(event).then((response: any) => {
                 const graphic = response.results[0]?.graphic;
                 if (graphic) {
+                    const regionName = graphic.attributes.Name; // Assuming 'Name' is the field for the region's name
+            const regionDescription = graphic.attributes.Description;
                   // Open the popup for the clicked feature
+
                   if (view.popup) {
                     view.popup.open({
-                      title: graphic.attributes.Name,
-                      content: graphic.attributes.Description,
+                      title: regionName,
+                      content: regionDescription,
                       location: event.mapPoint, // Show popup at clicked point
                     });
                   }
@@ -77,15 +80,15 @@ export const MapComponent = () => {
     }
   }, []);
 
-  function goBack() {
-    setCurrentPage;
-  }
+//   function goBack() {
+//     setCurrentPage;
+//   }
  
   return (
       <div>
         <h2 className="header">Get a European Recipe!</h2>
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          <button onClick={goBack}>Go Back</button>
+          {/* <button onClick={goBack}>Go Back</button> */}
          
       </div>
   );
