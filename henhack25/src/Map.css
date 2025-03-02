@@ -7,9 +7,6 @@
     cursor: pointer;
   }
   
-  .mapButton:hover {
-    background-color: #0056b3;
-  }
 
   .mapButton:hover {
     background-color: darkslategrey; /* Darker gradient */
