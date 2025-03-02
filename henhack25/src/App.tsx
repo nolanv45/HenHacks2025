@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import { AIIntegrationPage } from './AiIntegration'; // Correct import  // Import your AiIntegration component
-import MappingApp from './Map2';
+import { AIIntegrationPage } from './AiIntegration'; // Correct import
+import MapComponent from './Map';
 
 function App() {
-   // Define the page types
-   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
+  // Define the page types
+  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
 
   // Function to change the page to 'Ai Page'
@@ -13,9 +13,9 @@ function App() {
     setCurrentPage('Ai Page'); // Set the state to 'Ai Page'
   }
 
-  // Function to change the page to 'Recipe Page'
+  // Function to change the page to 'Map Page'
   function goToMapPage(): void {
-    setCurrentPage('Map Page'); // Set the state to 'Recipe Page'
+    setCurrentPage('Map Page'); // Set the state to 'Map Page'
     console.log("Navigating to Map Page");
   }
 
@@ -34,13 +34,12 @@ function App() {
         {currentPage === 'home' && (
           <div className='div1'>
             <p className='text'>Welcome to our homepage.</p>
-
-            {/* Button for the Recipe Page */}
+            {/* Button for the Ai Page */}
             <button className="ButtonRecipes" onClick={goToAiPage}>
               Click here for a recipe from medieval England!
             </button>
-
-            {/* Button for the Ai Page */}
+            
+            {/* Button for the Map Page */}
             <button className='ButtonMap' onClick={goToMapPage}>
               Click here for a map of diseases in medieval England!
             </button>
@@ -49,16 +48,15 @@ function App() {
 
         {currentPage === 'Ai Page' && (
           <div>
-            <AIIntegrationPage userKey={'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'}></AIIntegrationPage> 
+            <AIIntegrationPage userKey={'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'} />
           </div>
         )}
 
         {currentPage === 'Map Page' && (
           <div>
-            <MappingApp />
+            <MapComponent />
           </div>
         )}
-
       </header>
     </div>
   );
