@@ -46,3 +46,7 @@
     font-family:Apple Chancery, cursive;
     font-weight:bold;
   }
+  .t {
+    color: rgb(0, 0, 0); /* Or any color you want */
+    font-style: cursive;
+  }
