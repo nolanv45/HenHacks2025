@@ -37,14 +37,6 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
 
 
 
-  // function goToHomePage(): void {
-  //   setCurrentPage('home'); 
-  //   setRecipeGenerated(false); 
-  //   setRecipe(null); 
-  //   console.log("Navigating to home page");
-  // }
- 
-
   function updateIngredients(event: React.ChangeEvent<HTMLInputElement>) {
     setIngredients(event.target.value);
   }
