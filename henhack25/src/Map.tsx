@@ -7,6 +7,7 @@ import PopupTemplate from "@arcgis/core/PopupTemplate";
 import esriConfig from "@arcgis/core/config";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Button } from "react-bootstrap";
+import { Loader } from './Loader';
 
 interface MapPageProps {
   goToHomePage: () => void;
@@ -34,6 +35,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
   });
 
   const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchAccessToken() {
@@ -61,6 +63,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
   }, []);
 
   async function handleSubmit() {
+    setLoading(true);
     console.log("Generating recipes...");
     try {
       const apiKey = "AIzaSyDR-VHD19VDVq_t8ORrz4SCctc5Z_Rc6uQ";
@@ -163,6 +166,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
     } catch (error) {
       console.error("Error generating recipe:", error);
     }
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -298,6 +302,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
   return (
     <div>
       <h2 className="header">Explore the Recipes of Europe!</h2>
+      {loading && <Loader />}
       <Button onClick={handleSubmit} className="submitAns">
         Generate Recipes
       </Button>
@@ -306,7 +311,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
         Go Home
       </Button>
       
-      <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
+      {!loading && <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />}
     </div>
   );
 };

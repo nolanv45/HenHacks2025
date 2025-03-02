@@ -3,9 +3,9 @@
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: azure;
+    background-image:url("/public/grunge-paper-background_1048-10791.avif");
+    background-size:cover;
   }
   
   .responsebox{
@@ -14,6 +14,7 @@
       margin-bottom: 10px;
       border-radius: 15px;
       border-color:black;
+      font-size:20px;
   }
   .countrybox{
     width: 100%;
@@ -21,6 +22,7 @@
       margin-bottom: 10px;
       border-radius: 15px;
       border-color:black;
+      font-size:20px;
   }
   
   .submitAns {
