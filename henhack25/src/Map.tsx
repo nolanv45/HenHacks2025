@@ -304,7 +304,7 @@ export const MapComponent = ({ goToHomePage }: MapPageProps): JSX.Element => {
       <h2 className="header">Explore the Recipes of Europe!</h2>
       {loading && <Loader />}
       <Button onClick={handleSubmit} className="submitAns">
-        Generate Recipes
+        Regenerate Recipes
       </Button>
       
       <Button onClick={goToHomePage} className="submitAns">
