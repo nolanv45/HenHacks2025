@@ -33,7 +33,7 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
 
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-      const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}.`;
+      const prompt = `Generate a recipe from ${country} using the following ingredients: ${ingredients}. Keep it concise and make use of lists to keep track of ingredients. Don't use asterisks. Also, give the quantity of ingredients before explaining the recipe.`;
   
 
       const result = await model.generateContent(prompt);
@@ -46,40 +46,6 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
       console.error("Error generating recipe:", error);
     }
   }
-//   <div className="ai-integration-page">
-//       <div >
-//         <h2 className="header">Get a European Recipe!</h2>
-//         <FormGroup>
-//           <FormLabel className="text">Enter Your Ingredients:</FormLabel>
-//           <FormControl
-//             as="textarea"
-//             rows={3}
-//             value={ingredients}
-//             onChange={updateIngredients}
-//             className="responsebox"
-//           />
-//         </FormGroup>
-//         <FormGroup>
-//           <FormLabel className="text">Select European Country:</FormLabel>
-//           <FormControl
-//             type="text"
-//             value={country}
-//             onChange={updateCountry}
-//             className="responsebox"
-//           />
-//         </FormGroup>
-//         <Button onClick={handleSubmit} className="submitAns">
-//           Get Recipe
-//         </Button>
-//       </div>
-//       <div >
-//         <h2 className="recipe">Click For Your Recipe</h2>
-//         <Button className="submitAns" href="home" >
-//           Go Back
-//         </Button>
-    
-//       </div>
-//     </div>
   return (
   <div className="ai-integration-page">
     <div hidden={recipeGenerated}> {/* Add hidden attribute */}
