@@ -1,0 +1,19 @@
+.mapButton {
+    background-color: #007bff;
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mapButton:hover {
+    background-color: #0056b3;
+  }
+
+  .mapButton:hover {
+    background-color: darkslategrey; /* Darker gradient */
+    color: black;
+    transform: translate(0%, -3px); /* Slight lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }

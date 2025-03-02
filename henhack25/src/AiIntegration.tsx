@@ -40,7 +40,10 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
   function updateCountry(event: React.ChangeEvent<HTMLInputElement>) {
     setCountry(event.target.value);
   }
-
+  function goHome(){
+    setCurrentPage('home');
+    console.log("Navigating to Home Page");
+  }
 
   async function handleSubmit() {
     try {
@@ -149,6 +152,9 @@ export function AIIntegrationPage({ userKey }: { userKey: string }): JSX.Element
                     <App />
                   </div>
                 )}
+        <Button onClick={goHome} className="submitAns">
+          Home
+        </Button>
       </div>
     )}
   </div>

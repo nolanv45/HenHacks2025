@@ -141,6 +141,13 @@ async function handleSubmit() {
       };
     }
   }, []);
+  type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
+  const [currentPage, setCurrentPage] = useState<page>('home');
+
+
+function setCurrentPage(arg0: string) {
+  throw new Error("Function not implemented.");
+}
 
 
 function setCurrentPage(arg0: string) {
@@ -156,7 +163,7 @@ function goBack() {
       <div>
         <h2 className="header">Explore the Recipes of Europe!</h2>
           <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />
-          <button onClick={goBack}>Go Back</button>
+          <button onClick={goBack} className="mapButton">Go Back</button>
       </div>
   );
 };
