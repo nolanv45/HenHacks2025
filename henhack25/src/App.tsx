@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { AIIntegrationPage } from './AiIntegration'; // Correct import
+import { AIIntegrationPage } from './AiIntegration'; 
 import MapComponent from './Map';
 
 function App() {

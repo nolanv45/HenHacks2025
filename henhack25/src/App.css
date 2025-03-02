@@ -92,20 +92,20 @@
   font-family:Apple Chancery, cursive;
 
   display: flex;
-  justify-content: right; /* Centers text horizontally */
-  align-items: right; /* Centers text vertically */
+  justify-content: right; 
+  align-items: right; 
   text-align: center; /* Ensures proper text alignment */
 
-  width: 60%; /* Makes button as wide as its container */
+  width: 60%; 
   color:white;
   background-color:darkolivegreen
   
 }
 
 .ButtonMap:hover {
-  background-color: darkslategrey; /* Darker gradient */
+  background-color: darkslategrey; 
   color: white;
-  transform: translate(-50%, -3px); /* Slight lift effect */
+  transform: translate(-50%, -3px); 
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
