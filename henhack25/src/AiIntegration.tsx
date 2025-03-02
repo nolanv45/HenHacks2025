@@ -117,6 +117,9 @@ export function AIIntegrationPage({ userKey, goToHomePage }: AIIntegrationPagePr
         <Button onClick={handleSubmit} className="submitAns">
           Get Recipe
         </Button>
+        <Button onClick={goToHomePage} className="submitAns">
+          Go Home
+        </Button>
       </div>
     ) : (
       <div className="recipe-container">
