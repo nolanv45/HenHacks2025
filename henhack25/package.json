@@ -1,6 +1,7 @@
 {
   "name": "henhack25",
   "version": "0.1.0",
+  "homepage": "https://nolanv45.github.io/HenHacks2025",
   "private": true,
   "dependencies": {
     "@arcgis/core": "^4.32.3",
@@ -50,7 +51,5 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-  },
-  "homepage": "https://nolanv45.github.io/HenHacks2025"
-
+  }
 }
