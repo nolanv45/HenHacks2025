@@ -48,13 +48,16 @@ function App() {
 
         {currentPage === 'Ai Page' && (
           <div>
-            <AIIntegrationPage userKey={'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'} />
+            <AIIntegrationPage 
+              userKey={'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'} 
+              goToHomePage={() => setCurrentPage('home')}
+            />
           </div>
         )}
 
         {currentPage === 'Map Page' && (
           <div>
-            <MapComponent />
+            <MapComponent goToHomePage={() => setCurrentPage('home')}/>
           </div>
         )}
       </header>
