@@ -4,6 +4,7 @@ import { AIIntegrationPage } from './AiIntegration';
 import MapComponent from './Map';
 
 function App() {
+  //test
   // Define the page types
   type page = 'home' | 'Ai Page' | 'Recipe Page' | 'Map Page';
   const [currentPage, setCurrentPage] = useState<page>('home'); // Initialize currentPage state as 'home'
