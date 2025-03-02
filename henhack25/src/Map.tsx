@@ -38,7 +38,7 @@ export const MapComponent = () => {
 
             // Define a PopupTemplate (if it's not already defined)
             featureLayer.popupTemplate = new PopupTemplate({
-              title: layer., // Use the field of your feature layer
+              title: layer.title, // Use the field of your feature layer
               content: layer.content, // Content can be adjusted to show relevant fields
             });
 
