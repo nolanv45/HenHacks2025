@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhenhack25=self.webpackChunkhenhack25||[]).push([[8707],{68707:(e,t,s)=>{s.d(t,{G:()=>i,S:()=>m});class i{*[Symbol.iterator](){let e=this.next();for(;e;)yield e,e=this.next()}}class m extends i{constructor(e){super(),this.m_iGeom=-1,this.m_aGeoms=e?e.slice():[]}next(){if(this.m_iGeom<this.m_aGeoms.length-1){const e=this.m_aGeoms[++this.m_iGeom];return this.m_aGeoms[this.m_iGeom]=null,e}return null}tock(){return!1}getGeometryID(){return this.m_iGeom}getRank(){return 1}}}}]);
+//# sourceMappingURL=8707.0e455016.chunk.js.map
